@@ -1,0 +1,100 @@
+@!@!@STARTMSG 2262:0 @!@!@
+Created by Apalache on Thu Mar 12 23:31:42 IST 2026
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2110:1 @!@!@
+Invariant is violated.
+@!@!@ENDMSG 2110 @!@!@
+@!@!@STARTMSG 2121:1 @!@!@
+The behavior up to this point is:
+@!@!@ENDMSG 2121 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+1: <Initial predicate>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 0>>, <<"n2", 0>>, <<"n3", 0>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Follower", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("None", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("None", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("None", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", {}>>, <<"n3", {}>> })
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+2: <Next>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 0>>, <<"n2", 1>>, <<"n3", 0>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Candidate", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Follower", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("None", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Some", "n2")>>,
+  <<"n3", Variant("None", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", {"n2"}>>, <<"n3", {}>> })
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+3: <Next>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 0>>, <<"n2", 1>>, <<"n3", 1>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Candidate", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Follower", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("None", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Some", "n2")>>,
+  <<"n3", Variant("Some", "n2")>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", { "n2", "n3" }>>, <<"n3", {}>> })
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+4: <Next>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 0>>, <<"n2", 1>>, <<"n3", 2>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Candidate", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Candidate", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("None", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Some", "n2")>>,
+  <<"n3", Variant("Some", "n3")>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", { "n2", "n3" }>>, <<"n3", {"n3"}>> })
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+5: <Next>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 2>>, <<"n2", 1>>, <<"n3", 2>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Candidate", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Candidate", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("Some", "n3")>>,
+  <<"n2", Variant("Some", "n2")>>,
+  <<"n3", Variant("Some", "n3")>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", { "n2", "n3" }>>, <<"n3", { "n1", "n3" }>> })
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+6: <Next>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 2>>, <<"n2", 1>>, <<"n3", 2>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Candidate", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Leader", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("Some", "n3")>>,
+  <<"n2", Variant("Some", "n2")>>,
+  <<"n3", Variant("Some", "n3")>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", { "n2", "n3" }>>, <<"n3", { "n1", "n3" }>> })
+
+@!@!@ENDMSG 2217 @!@!@
+@!@!@STARTMSG 2217:4 @!@!@
+7: <Next>
+/\ raft_test::raft::currentTerm = SetAsFun({ <<"n1", 2>>, <<"n2", 1>>, <<"n3", 2>> })
+/\ raft_test::raft::logs = SetAsFun({ <<"n1", <<>>>>, <<"n2", <<>>>>, <<"n3", <<>>>> })
+/\ raft_test::raft::role = SetAsFun({ <<"n1", Variant("Follower", [tag |-> "UNIT"])>>,
+  <<"n2", Variant("Leader", [tag |-> "UNIT"])>>,
+  <<"n3", Variant("Leader", [tag |-> "UNIT"])>> })
+/\ raft_test::raft::votedFor = SetAsFun({ <<"n1", Variant("Some", "n3")>>,
+  <<"n2", Variant("Some", "n2")>>,
+  <<"n3", Variant("Some", "n3")>> })
+/\ raft_test::raft::votesReceived = SetAsFun({ <<"n1", {}>>, <<"n2", { "n2", "n3" }>>, <<"n3", { "n1", "n3" }>> })
+
+@!@!@ENDMSG 2217 @!@!@
