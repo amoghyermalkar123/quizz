@@ -2,3 +2,4 @@ zig-out
 .zig-cache
 _apalache-out
 .claude
+tmp/
