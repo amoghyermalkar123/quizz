@@ -30,17 +30,60 @@ pub const RaftSM = struct {
 
     const Self = @This();
 
-    pub fn init() !Self {}
-
-    pub fn become_candidate(self: Self) !void {
-        _ = self;
+    pub fn init(allocator: std.mem.Allocator) Self {
+        return .{
+            .currentTerm = 0,
+            .role = .Follower,
+            .logs = .empty,
+            .votedFor = null,
+            .votesReceived = std.StringHashMap(void).init(allocator),
+            .allocator = allocator,
+        };
     }
 
-    pub fn become_leader(self: Self) !void {
-        _ = self;
+    pub fn deinit(self: *Self) void {
+        self.logs.deinit(self.allocator);
+        self.votesReceived.deinit();
     }
 
-    pub fn grant_vote(self: Self) !void {
-        _ = self;
+    pub fn reset(self: *Self) void {
+        self.currentTerm = 0;
+        self.role = .Follower;
+        self.logs.clearRetainingCapacity();
+        self.votedFor = null;
+        self.votesReceived.clearRetainingCapacity();
+    }
+
+    pub fn become_candidate(self: *Self, node_id: []const u8) !void {
+        self.currentTerm += 1;
+        self.role = .Candidate;
+        self.votedFor = node_id;
+        self.votesReceived.clearRetainingCapacity();
+        try self.votesReceived.put(node_id, {});
+    }
+
+    pub fn become_leader(self: *Self, processes: *std.StringHashMap(Self)) !void {
+        self.role = .Leader;
+
+        var it = processes.iterator();
+        while (it.next()) |entry| {
+            if (entry.value_ptr == self) continue;
+            if (entry.value_ptr.role == .Leader and entry.value_ptr.currentTerm < self.currentTerm) {
+                entry.value_ptr.role = .Follower;
+            }
+        }
+    }
+
+    pub fn grant_vote(
+        self: *Self,
+        voter_id: []const u8,
+        candidate_id: []const u8,
+        processes: *std.StringHashMap(Self),
+    ) !void {
+        const candidate = processes.getPtr(candidate_id) orelse return error.UnknownNode;
+
+        self.currentTerm = candidate.currentTerm;
+        self.votedFor = candidate_id;
+        try candidate.votesReceived.put(voter_id, {});
     }
 };

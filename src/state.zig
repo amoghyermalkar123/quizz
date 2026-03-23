@@ -6,7 +6,7 @@
 /// Spec (JSON/ quizz.State) ──→ [Intermediate State] ←── Driver (Memory, Your representation)
 ///                                      ↓
 ///                                   Compare
-const quizz = @import("quizz");
+const quizz = @import("root.zig");
 const std = @import("std");
 
 // from_spec converts a spec's state i.e. `state` into an intermediate state represented as
@@ -16,12 +16,27 @@ const std = @import("std");
 // the goal here is to have state equality when the implementations are divergent/ different languages
 // i.e. quint and zig/ quint and rust but the FSM is intact and always results in correct state transitions
 // while maintaining invariants at each step/ state
-pub fn from_spec(gpa: std.mem.Allocator, comptime InterState: type, step_state: quizz.Values) !InterState {
+pub fn from_spec(
+    gpa: std.mem.Allocator,
+    comptime InterState: type,
+    step_state: quizz.Values,
+    state_suffix: ?[]const u8,
+) !InterState {
     const state_info = @typeInfo(InterState);
     var spec_state: InterState = undefined;
 
     inline for (state_info.@"struct".fields) |field| {
-        const vari = step_state.Record.get(field.name) orelse return error.MissingFieldValue;
+        if (field.type == std.mem.Allocator) {
+            @field(spec_state, field.name) = gpa;
+            continue;
+        }
+
+        const field_key = if (state_suffix) |suffix|
+            try std.fmt.allocPrint(gpa, "{s}::{s}", .{ suffix, field.name })
+        else
+            field.name;
+
+        const vari = step_state.Record.get(field_key) orelse return error.MissingFieldValue;
         @field(spec_state, field.name) = try convertValue(gpa, field.type, vari);
     }
 
@@ -69,9 +84,9 @@ test "from_spec" {
     try term_record.put("n2", quizz.Values{ .BigInt = "2" });
     try variables.put("currentTerm", quizz.Values{ .Record = term_record });
 
-    const state = quizz.State{ .index = 0, .variables = variables };
+    const state = quizz.Values{ .Record = variables };
 
-    var result = try from_spec(gpa, RaftState, state);
+    var result = try from_spec(gpa, RaftState, state, null);
     defer result.currentTerm.deinit();
 
     try std.testing.expectEqual(@as(i64, 5), result.term);
@@ -84,7 +99,7 @@ test "from_spec" {
 }
 
 // converts `value` to field_type
-fn convertValue(gpa: std.mem.Allocator, comptime field_type: type, value: quizz.Values) !field_type {
+pub fn convertValue(gpa: std.mem.Allocator, comptime field_type: type, value: quizz.Values) !field_type {
     const t = @typeInfo(field_type);
 
     switch (t) {
@@ -128,34 +143,120 @@ fn convertValue(gpa: std.mem.Allocator, comptime field_type: type, value: quizz.
         .@"struct" => |_| {
             // this is a hashmap
             if (@hasDecl(field_type, "KV")) {
-                const tkv = @typeInfo(field_type.KV);
-
-                const hm_vtype = comptime type_block: {
-                    for (tkv.@"struct".fields) |f| {
-                        if (std.mem.eql(u8, "value", f.name)) break :type_block f.type;
-                    }
-                    @compileError("no value found in a hashmap container");
-                };
-
-                var cp_hm = field_type.init(gpa);
-
-                try switch (value) {
-                    .Record => |r| {
-                        var it = r.iterator();
-                        while (it.next()) |entry| {
-                            try cp_hm.put(entry.key_ptr.*, try convertValue(gpa, hm_vtype, entry.value_ptr.*));
-                        }
-                    },
-
-                    else => error.ValueTypeMismatch,
-                };
-
-                return cp_hm;
+                return try convertHashMap(gpa, field_type, value);
             }
+
+            if (@hasField(field_type, "items")) {
+                return try convertArrayList(gpa, field_type, value);
+            }
+
+            return try convertStruct(gpa, field_type, value);
         },
 
         else => unreachable,
     }
+}
+
+fn convertHashMap(gpa: std.mem.Allocator, comptime MapType: type, value: quizz.Values) !MapType {
+    const key_type, const value_type = comptime hashMapTypes(MapType);
+    var cp_hm = MapType.init(gpa);
+
+    switch (value) {
+        .Record => |r| {
+            var it = r.iterator();
+            while (it.next()) |entry| {
+                try cp_hm.put(
+                    try convertMapKey(gpa, key_type, quizz.Values{ .String = entry.key_ptr.* }),
+                    try convertValue(gpa, value_type, entry.value_ptr.*),
+                );
+            }
+        },
+        .Map => |entries| {
+            for (entries.items) |entry| {
+                try cp_hm.put(
+                    try convertMapKey(gpa, key_type, entry.key.*),
+                    try convertValue(gpa, value_type, entry.value.*),
+                );
+            }
+        },
+        .Set => |set_values| {
+            if (value_type != void) return error.ValueTypeMismatch;
+            for (set_values.items) |entry| {
+                try cp_hm.put(try convertMapKey(gpa, key_type, entry), {});
+            }
+        },
+        else => return error.ValueTypeMismatch,
+    }
+
+    return cp_hm;
+}
+
+fn convertArrayList(gpa: std.mem.Allocator, comptime ListType: type, value: quizz.Values) !ListType {
+    const Child = std.meta.Elem(@TypeOf(ListType.empty.items));
+    var list: ListType = .empty;
+
+    switch (value) {
+        .List => |items| {
+            for (items.items) |item| {
+                try list.append(gpa, try convertValue(gpa, Child, item));
+            }
+        },
+        .Tuple => |items| {
+            for (items.items) |item| {
+                try list.append(gpa, try convertValue(gpa, Child, item));
+            }
+        },
+        .Set => |items| {
+            for (items.items) |item| {
+                try list.append(gpa, try convertValue(gpa, Child, item));
+            }
+        },
+        else => return error.ValueTypeMismatch,
+    }
+
+    return list;
+}
+
+fn convertStruct(gpa: std.mem.Allocator, comptime StructType: type, value: quizz.Values) !StructType {
+    const record = switch (value) {
+        .Record => |r| r,
+        else => return error.ValueTypeMismatch,
+    };
+
+    var converted: StructType = undefined;
+    inline for (@typeInfo(StructType).@"struct".fields) |field| {
+        if (field.type == std.mem.Allocator) {
+            @field(converted, field.name) = gpa;
+            continue;
+        }
+
+        const field_value = record.get(field.name) orelse return error.MissingFieldValue;
+        @field(converted, field.name) = try convertValue(gpa, field.type, field_value);
+    }
+
+    return converted;
+}
+
+fn hashMapTypes(comptime MapType: type) struct { type, type } {
+    const kv_info = @typeInfo(MapType.KV).@"struct".fields;
+    var key_type: ?type = null;
+    var value_type: ?type = null;
+
+    inline for (kv_info) |field| {
+        if (std.mem.eql(u8, field.name, "key")) key_type = field.type;
+        if (std.mem.eql(u8, field.name, "value")) value_type = field.type;
+    }
+
+    return .{
+        key_type orelse @compileError("no key found in a hashmap container"),
+        value_type orelse @compileError("no value found in a hashmap container"),
+    };
+}
+
+fn convertMapKey(gpa: std.mem.Allocator, comptime KeyType: type, value: quizz.Values) !KeyType {
+    const key = try convertValue(gpa, KeyType, value);
+    if (KeyType == []const u8) return try gpa.dupe(u8, key);
+    return key;
 }
 
 test "convertValue int from BigInt" {

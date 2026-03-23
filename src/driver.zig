@@ -1,7 +1,9 @@
 const st = @import("state.zig");
-const Values = @import("quizz").Values;
-const ValueTypes = @import("quizz").ValueTypes;
 const std = @import("std");
+const quizz = @import("root.zig");
+const State = quizz.State;
+const Values = quizz.Values;
+const ValueTypes = quizz.ValueTypes;
 
 // A step is an object in an array of state.
 // logically array of states are just states in transition
@@ -14,13 +16,11 @@ pub const Step = struct {
     state: Values, // Expected state after step
 
     // state should be a record
-    pub fn from(allocator: std.mem.Allocator, state: Values) !Step {
-        if (std.meta.activeTag(state) != ValueTypes.Record) return error.ExpectedRecordValue;
-
-        const action = state.Record.get("mbt::actionTaken") orelse
+    pub fn from(allocator: std.mem.Allocator, state: State) !Step {
+        const action = state.variables.get("mbt::actionTaken") orelse
             return error.MissingAction;
 
-        const nondet = state.Record.get("mbt::nondetPicks") orelse
+        const nondet = state.variables.get("mbt::nondetPicks") orelse
             Values{ .Record = std.StringHashMap(Values).init(allocator) };
 
         return Step{
@@ -33,26 +33,6 @@ pub const Step = struct {
         };
     }
 };
-
-// The driver interface which is passed to the quizz runner
-// the developer implements the actual step function and then
-// wraps that type in DriverType to satify the interface
-// TODO: driver design is not final yet
-pub fn DriverType(comptime Impl: type) type {
-    return struct {
-        const Self = @This();
-
-        comptime {
-            if (!@hasDecl(Impl, "step")) @compileError("the type must implement the step function");
-        }
-
-        impl: *Impl,
-
-        pub fn step(self: Self, stp: Step) !void {
-            return Impl.step(self.impl, stp);
-        }
-    };
-}
 
 pub fn case(comptime arg_names: anytype, comptime handler: anytype) struct {
     arg_names: @TypeOf(arg_names),
@@ -84,10 +64,10 @@ pub fn case(comptime arg_names: anytype, comptime handler: anytype) struct {
 }
 
 pub fn dispatch(gpa: std.mem.Allocator, self: anytype, step: Step, comptime cases: anytype) !void {
-    inline for (@typeInfo(cases).@"struct".fields) |field| {
-        if (!std.mem.eql(u8, step.action_taken, field.name)) continue;
-
-        return invokeCase(gpa, self, step.args, @field(cases, field.name));
+    inline for (@typeInfo(@TypeOf(cases)).@"struct".fields) |field| {
+        if (std.mem.eql(u8, step.action_taken, field.name)) {
+            return invokeCase(gpa, self, step.nondet_picks, @field(cases, field.name));
+        }
     }
 
     return error.UnknownAction;
@@ -126,4 +106,64 @@ pub fn decodeValue(
     value: Values,
 ) !T {
     return st.convertValue(gpa, T, value);
+}
+
+test "Step.from extracts action, nondet picks, and state record" {
+    const gpa = std.testing.allocator;
+
+    var nondet = std.StringHashMap(Values).init(gpa);
+    defer nondet.deinit();
+    try nondet.put("candidate", Values{ .String = "n2" });
+
+    var variables = std.StringHashMap(Values).init(gpa);
+    defer variables.deinit();
+    try variables.put("mbt::actionTaken", Values{ .String = "becomeCandidate" });
+    try variables.put("mbt::nondetPicks", Values{ .Record = nondet });
+    try variables.put("term", Values{ .BigInt = "1" });
+
+    const state = State{
+        .index = 1,
+        .variables = variables,
+    };
+
+    const step = try Step.from(gpa, state);
+
+    try std.testing.expectEqualStrings("becomeCandidate", step.action_taken);
+    try std.testing.expectEqual(ValueTypes.Record, std.meta.activeTag(step.nondet_picks));
+    try std.testing.expectEqualStrings("n2", step.nondet_picks.Record.get("candidate").?.String);
+    try std.testing.expectEqual(ValueTypes.Record, std.meta.activeTag(step.state));
+    try std.testing.expectEqualStrings("1", step.state.Record.get("term").?.BigInt);
+}
+
+test "dispatch decodes named arguments and calls matching handler" {
+    const gpa = std.testing.allocator;
+
+    const Recorder = struct {
+        seen: ?[]const u8 = null,
+
+        fn handle(self: *@This(), candidate: []const u8) !void {
+            self.seen = candidate;
+        }
+    };
+
+    var recorder = Recorder{};
+
+    var nondet = std.StringHashMap(Values).init(gpa);
+    defer nondet.deinit();
+    try nondet.put("candidate", Values{ .String = "n3" });
+
+    var state_record = std.StringHashMap(Values).init(gpa);
+    defer state_record.deinit();
+
+    const step = Step{
+        .action_taken = "becomeCandidate",
+        .nondet_picks = Values{ .Record = nondet },
+        .state = Values{ .Record = state_record },
+    };
+
+    try dispatch(gpa, &recorder, step, .{
+        .becomeCandidate = case(.{"candidate"}, Recorder.handle),
+    });
+
+    try std.testing.expectEqualStrings("n3", recorder.seen.?);
 }

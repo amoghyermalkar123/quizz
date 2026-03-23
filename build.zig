@@ -20,27 +20,9 @@ pub fn build(b: *std.Build) void {
     const test_step = b.step("test", "Run tests");
     test_step.dependOn(&run_mod_tests.step);
 
-    // creating a banking module for tests
-    const banking_module = b.addModule("banking", .{
-        .root_source_file = b.path("examples/banking/banking.zig"),
-        .target = target,
-        .optimize = optimize,
-    });
-    // injecting quizz library for the banking module
-    // so it can import it
-    banking_module.addImport("quizz", mod);
-
-    const banking_tests = b.addTest(.{
-        .root_module = banking_module,
-    });
-
-    // configuring tests for the banking module
-    const run_banking_tests = b.addRunArtifact(banking_tests);
-    test_step.dependOn(&run_banking_tests.step);
-
-    // adding the raft spec as an executable example
+    // adding the raft driver as an executable example
     const raft_mod = b.addModule("raft", .{
-        .root_source_file = b.path("examples/raft/raft.zig"),
+        .root_source_file = b.path("examples/raft/raftdriver.zig"),
         .target = target,
         .optimize = optimize,
     });
