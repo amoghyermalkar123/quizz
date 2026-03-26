@@ -87,7 +87,7 @@ test "from_spec" {
     const state = quizz.Values{ .Record = variables };
 
     var result = try from_spec(gpa, RaftState, state, null);
-    defer result.currentTerm.deinit();
+    defer deinitOwnedStringHashMap(gpa, &result.currentTerm);
 
     try std.testing.expectEqual(@as(i64, 5), result.term);
     try std.testing.expect(result.active == true);
@@ -259,6 +259,14 @@ fn convertMapKey(gpa: std.mem.Allocator, comptime KeyType: type, value: quizz.Va
     return key;
 }
 
+fn deinitOwnedStringHashMap(gpa: std.mem.Allocator, map: anytype) void {
+    var it = map.iterator();
+    while (it.next()) |entry| {
+        gpa.free(entry.key_ptr.*);
+    }
+    map.deinit();
+}
+
 test "convertValue int from BigInt" {
     const gpa = std.testing.allocator;
     const value = quizz.Values{ .BigInt = "42" };
@@ -278,7 +286,7 @@ test "convertValue StringHashMap" {
     const value = quizz.Values{ .Record = rec };
 
     var result = try convertValue(gpa, std.StringHashMap(i64), value);
-    defer result.deinit();
+    defer deinitOwnedStringHashMap(gpa, &result);
 
     try std.testing.expectEqual(@as(i64, 1), result.get("a").?);
     try std.testing.expectEqual(@as(i64, 2), result.get("b").?);
