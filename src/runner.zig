@@ -1,6 +1,7 @@
 // runs the itf traces against the provided driver
 const quizz = @import("root.zig");
 const driver_mod = @import("driver.zig");
+const quizz_json = @import("json.zig");
 const std = @import("std");
 const state = @import("state.zig");
 
@@ -36,11 +37,91 @@ pub fn run_test(gpa: std.mem.Allocator, driver: anytype, spec_path: []const u8, 
 }
 
 pub fn replay_traces(gpa: std.mem.Allocator, driver: anytype, traces: []quizz.Trace, state_suffix: ?[]const u8) !void {
-    for (traces) |trace| {
+    const Driver = switch (@typeInfo(@TypeOf(driver))) {
+        .pointer => |ptr| ptr.child,
+        else => @TypeOf(driver),
+    };
+
+    const StepReport = struct {
+        state_index: usize,
+        action: []const u8,
+        matched: bool,
+        spec_state_json: []const u8,
+        driver_state_json: []const u8,
+
+        pub fn jsonStringify(self: @This(), jws: anytype) !void {
+            try jws.beginObject();
+
+            try jws.objectField("state_index");
+            try jws.write(self.state_index);
+
+            try jws.objectField("action");
+            try jws.write(self.action);
+
+            try jws.objectField("matched");
+            try jws.write(self.matched);
+
+            try jws.objectField("spec_state");
+            try jws.beginWriteRaw();
+            try jws.writer.writeAll(self.spec_state_json);
+            jws.endWriteRaw();
+
+            try jws.objectField("driver_state");
+            try jws.beginWriteRaw();
+            try jws.writer.writeAll(self.driver_state_json);
+            jws.endWriteRaw();
+
+            try jws.endObject();
+        }
+    };
+
+    var report = std.StringHashMap(std.ArrayList(StepReport)).init(gpa);
+    defer {
+        var trace_it = report.iterator();
+        while (trace_it.next()) |entry| {
+            gpa.free(entry.key_ptr.*);
+            for (entry.value_ptr.items) |step_report| {
+                gpa.free(step_report.action);
+                gpa.free(step_report.spec_state_json);
+                gpa.free(step_report.driver_state_json);
+            }
+            entry.value_ptr.deinit(gpa);
+        }
+        report.deinit();
+    }
+
+    for (traces, 0..) |trace, trace_idx| {
+        const trace_key = try std.fmt.allocPrint(gpa, "trace_{d}", .{trace_idx});
+        // commented this because this causes double free: errdefer gpa.free(trace_key);
+
+        const gop = try report.getOrPut(trace_key);
+        if (!gop.found_existing) {
+            gop.value_ptr.* = .empty;
+        } else {
+            gpa.free(trace_key);
+        }
+
         for (trace.states.items) |trace_state| {
             const step = try driver_mod.Step.from(gpa, trace_state);
 
             try driver.step(step);
+
+            var arena = std.heap.ArenaAllocator.init(gpa);
+            defer arena.deinit();
+
+            const scratch = arena.allocator();
+            const spec_state = try state.from_spec(scratch, Driver.State, step.state, state_suffix);
+            const driver_state = try driver.from_driver(scratch);
+            const matched = eqlValue(Driver.State, spec_state, driver_state);
+
+            const report_entry = StepReport{
+                .state_index = trace_state.index,
+                .action = try gpa.dupe(u8, step.action_taken),
+                .matched = matched,
+                .spec_state_json = try quizz_json.valueAlloc(gpa, spec_state, .{}),
+                .driver_state_json = try quizz_json.valueAlloc(gpa, driver_state, .{}),
+            };
+            try gop.value_ptr.append(gpa, report_entry);
 
             // TODO: if we do this entirely at comptime we can do @compileError
             // meaning your entire spec will be checked as part of compiling the
@@ -49,14 +130,27 @@ pub fn replay_traces(gpa: std.mem.Allocator, driver: anytype, traces: []quizz.Tr
             // comptime formal verification
             //
             // for now it runs on runtime and returns an error
-            if (try check_state(gpa, driver, step, state_suffix)) continue else {
+            if (matched) continue else {
+                try writeReplayReport(gpa, report);
                 std.debug.print("trace failed, states don't match", .{});
                 return error.TraceFailed;
             }
         }
     }
 
+    try writeReplayReport(gpa, report);
+
     return;
+}
+
+fn writeReplayReport(gpa: std.mem.Allocator, report: anytype) !void {
+    const json_report = try quizz_json.valueAlloc(gpa, report, .{ .whitespace = .indent_2 });
+    defer gpa.free(json_report);
+
+    try std.fs.cwd().writeFile(.{
+        .sub_path = "quizz_run.json",
+        .data = json_report,
+    });
 }
 
 fn generate_traces(gpa: std.mem.Allocator, spec_path: []const u8, out_prefix: []const u8) !void {
@@ -158,6 +252,7 @@ fn deinitTrace(gpa: std.mem.Allocator, trace: *quizz.Trace) void {
     trace.states.deinit(gpa);
 }
 
+// TODO: deprecated
 pub fn check_state(gpa: std.mem.Allocator, driver: anytype, step: driver_mod.Step, state_suffix: ?[]const u8) !bool {
     var arena = std.heap.ArenaAllocator.init(gpa);
     defer arena.deinit();

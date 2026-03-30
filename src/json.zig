@@ -28,7 +28,10 @@ fn writeValue(jws: *Stringify, comptime T: type, v: T) Writer.Error!void {
         .float,
         .comptime_float,
         .null,
-        .@"enum",
+        .@"enum" => {
+            if (std.meta.hasFn(T, "jsonStringify")) return v.jsonStringify(jws);
+            return jws.write(v);
+        },
         .enum_literal,
         .error_set,
         => return jws.write(v),
@@ -79,6 +82,7 @@ fn writeValue(jws: *Stringify, comptime T: type, v: T) Writer.Error!void {
         },
 
         .@"struct" => |info| {
+            if (std.meta.hasFn(T, "jsonStringify")) return v.jsonStringify(jws);
             if (@hasDecl(T, "KV")) return writeHashMap(jws, T, v);
             if (@hasField(T, "items")) return writeValue(jws, @TypeOf(v.items), v.items);
 
@@ -100,6 +104,7 @@ fn writeValue(jws: *Stringify, comptime T: type, v: T) Writer.Error!void {
         },
 
         .@"union" => |union_info| {
+            if (std.meta.hasFn(T, "jsonStringify")) return v.jsonStringify(jws);
             if (union_info.tag_type) |Tag| {
                 try jws.beginObject();
                 inline for (union_info.fields) |field| {
