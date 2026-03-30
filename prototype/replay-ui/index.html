@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover"
+    />
+    <title>Quizz Replay UI Prototype</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Quizz Prototype</p>
+          <h1>Replay System Workspace</h1>
+        </div>
+        <div class="topbar-meta">
+          <label class="trace-loader" for="trace-file">
+            <span>Load Trace / Report</span>
+            <input id="trace-file" type="file" accept=".json,.itf.json,application/json" />
+          </label>
+          <button id="reset-demo" class="ghost-button" type="button">
+            Reload Report
+          </button>
+        </div>
+      </header>
+
+      <section class="control-strip">
+        <div class="transport-group">
+          <button id="play-toggle" class="primary-button" type="button">Play</button>
+          <button id="step-back" class="ghost-button" type="button">Back</button>
+          <button id="step-forward" class="ghost-button" type="button">Next</button>
+        </div>
+
+        <label class="timeline-scrubber">
+          <span>Step</span>
+          <input id="step-range" type="range" min="0" max="0" value="0" />
+        </label>
+
+        <label class="speed-picker">
+          <span>Speed</span>
+          <select id="playback-speed">
+            <option value="1600">0.6x</option>
+            <option value="1000" selected>1.0x</option>
+            <option value="650">1.5x</option>
+            <option value="350">3.0x</option>
+          </select>
+        </label>
+      </section>
+
+      <main class="workspace">
+        <aside class="left-rail panel">
+          <div class="panel-heading">
+            <p class="eyebrow">Trace</p>
+            <h2>Session Context</h2>
+          </div>
+
+          <dl id="trace-summary" class="summary-grid"></dl>
+
+          <section class="section-block">
+            <div class="section-heading">
+              <h3>Event Stream</h3>
+              <span id="event-count" class="pill">0 events</span>
+            </div>
+            <ol id="event-stream" class="event-stream"></ol>
+          </section>
+        </aside>
+
+        <section class="center-stage">
+          <section class="panel behavior-panel">
+            <div class="panel-heading panel-heading-inline">
+              <div>
+                <p class="eyebrow">State Visualization</p>
+                <h2 id="event-title">Awaiting trace</h2>
+              </div>
+              <div id="event-badges" class="badge-row"></div>
+            </div>
+
+            <div id="behavior-canvas" class="state-compare" aria-label="State comparison panel"></div>
+          </section>
+        </section>
+
+        <aside class="right-rail">
+          <section class="panel inspector-panel">
+            <div class="panel-heading">
+              <p class="eyebrow">Inspector</p>
+              <h2>Selected Transition</h2>
+            </div>
+            <div id="transition-summary" class="transition-summary"></div>
+            <div id="nondet-picks" class="inspector-list"></div>
+          </section>
+        </aside>
+      </main>
+    </div>
+
+    <script src="./app.js"></script>
+  </body>
+</html>

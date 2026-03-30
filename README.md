@@ -21,3 +21,14 @@ for doing model-based testing and much more.
 
 - Quint Language: https://quint-lang.org/
 - Quint-Connect: https://github.com/informalsystems/quint-connect
+## Replay UI prototype
+
+An interactive browser prototype for replay visualization lives in
+`prototype/replay-ui/`.
+
+- Open `prototype/replay-ui/index.html` in a browser to load `quizz_run.json`
+  by default.
+- Load either a replay report like `quizz_run.json` or a raw `.itf.json` trace.
+- The prototype is tuned for invariant debugging: playback controls, selected
+  action context, spec-vs-driver state comparison, and JSON-path diffs for the
+  selected step.
