@@ -1,5 +1,601 @@
 {
+  "trace_3": [
+    {
+      "state_index": 0,
+      "action": "init",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 1,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 2,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 3,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 4,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 5,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 6,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 7,
+      "action": "grantVote",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 8,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 9,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 10,
+      "action": "grantVote",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 11,
+      "action": "becomeLeader",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 12,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 17,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 18,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 19,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 20,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    }
+  ],
+  "trace_2": [
+    {
+      "state_index": 0,
+      "action": "init",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 1,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 2,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 3,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":null},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":null},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 4,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":null},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":null},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 5,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 6,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 7,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 8,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 9,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 10,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 11,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 12,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 17,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 18,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 19,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 20,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    }
+  ],
+  "trace_6": [
+    {
+      "state_index": 0,
+      "action": "init",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 1,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 2,
+      "action": "grantVote",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}}
+    },
+    {
+      "state_index": 3,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}}
+    },
+    {
+      "state_index": 4,
+      "action": "grantVote",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 5,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 6,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n1","n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 7,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n2"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n2"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":[]}}
+    },
+    {
+      "state_index": 8,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 9,
+      "action": "becomeLeader",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 10,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 11,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 12,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 17,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 18,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 19,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 20,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2","n3"],"n3":["n3"]}}
+    }
+  ],
   "trace_0": [
+    {
+      "state_index": 0,
+      "action": "init",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 1,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 2,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 3,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 4,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 5,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 6,
+      "action": "grantVote",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}}
+    },
+    {
+      "state_index": 7,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}}
+    },
+    {
+      "state_index": 8,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":[]}}
+    },
+    {
+      "state_index": 9,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 10,
+      "action": "becomeLeader",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n2","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 11,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 12,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 17,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 18,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 19,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 20,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n1","n2"],"n3":["n3"]}}
+    }
+  ],
+  "trace_1": [
     {
       "state_index": 0,
       "action": "init",
@@ -16,14 +612,312 @@
     },
     {
       "state_index": 2,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n3"]}}
+    },
+    {
+      "state_index": 3,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n3"]}}
+    },
+    {
+      "state_index": 4,
       "action": "becomeCandidate",
       "matched": true,
       "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n3"]}},
       "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n3"]}}
     },
     {
+      "state_index": 5,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n3"]}}
+    },
+    {
+      "state_index": 6,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 7,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 8,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 9,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 10,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 11,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 12,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 17,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 18,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 19,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 20,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    }
+  ],
+  "trace_4": [
+    {
+      "state_index": 0,
+      "action": "init",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 1,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 2,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
       "state_index": 3,
       "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 4,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":null},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":0},"role":{"n1":"Candidate","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":null},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":[]}}
+    },
+    {
+      "state_index": 5,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 6,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 7,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 8,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 9,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 10,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 11,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 12,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 17,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 18,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 19,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    },
+    {
+      "state_index": 20,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
+    }
+  ],
+  "trace_5": [
+    {
+      "state_index": 0,
+      "action": "init",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 1,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 2,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":0},"role":{"n1":"Candidate","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":null},"votesReceived":{"n1":["n1"],"n2":[],"n3":[]}}
+    },
+    {
+      "state_index": 3,
+      "action": "becomeCandidate",
       "matched": true,
       "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n3"]}},
       "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n3"]}}
@@ -148,7 +1042,7 @@
       "driver_state": {"currentTerm":{"n1":1,"n2":1,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1"],"n2":["n2"],"n3":["n3"]}}
     }
   ],
-  "trace_1": [
+  "trace_7": [
     {
       "state_index": 0,
       "action": "init",
@@ -158,66 +1052,122 @@
     },
     {
       "state_index": 1,
-      "action": "becomeCandidate",
+      "action": "stutter",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
     },
     {
       "state_index": 2,
       "action": "stutter",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":0},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":null},"votesReceived":{"n1":[],"n2":["n2"],"n3":[]}}
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
     },
     {
       "state_index": 3,
-      "action": "grantVote",
+      "action": "stutter",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":0},"role":{"n1":"Follower","n2":"Follower","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":null},"votesReceived":{"n1":[],"n2":[],"n3":[]}}
     },
     {
       "state_index": 4,
-      "action": "becomeLeader",
+      "action": "becomeCandidate",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+      "spec_state": {"currentTerm":{"n1":0,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n3"]}},
+      "driver_state": {"currentTerm":{"n1":0,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n3"]}}
     },
     {
       "state_index": 5,
-      "action": "stutter",
+      "action": "grantVote",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
     },
     {
       "state_index": 6,
-      "action": "stutter",
+      "action": "becomeLeader",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":1},"role":{"n1":"Follower","n2":"Leader","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n2"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":[]}}
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
     },
     {
       "state_index": 7,
-      "action": "becomeCandidate",
+      "action": "stutter",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":0,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":["n3"]}},
-      "driver_state": {"currentTerm":{"n1":0,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":null,"n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":["n3"]}}
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
     },
     {
       "state_index": 8,
-      "action": "grantVote",
+      "action": "stutter",
       "matched": true,
-      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":["n1","n3"]}},
-      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Candidate"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":["n1","n3"]}}
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
     },
     {
       "state_index": 9,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 10,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 11,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 12,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":1,"n2":0,"n3":1},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":null,"n3":"n3"},"votesReceived":{"n1":[],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 13,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 14,
+      "action": "stutter",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":0,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":null,"n3":"n3"},"votesReceived":{"n1":["n1"],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 15,
+      "action": "grantVote",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":2,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n1","n3":"n3"},"votesReceived":{"n1":["n1","n2"],"n2":[],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":2,"n3":1},"role":{"n1":"Candidate","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n1","n3":"n3"},"votesReceived":{"n1":["n1","n2"],"n2":[],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 16,
+      "action": "becomeCandidate",
+      "matched": true,
+      "spec_state": {"currentTerm":{"n1":2,"n2":3,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1","n2"],"n2":["n2"],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":3,"n3":1},"role":{"n1":"Candidate","n2":"Candidate","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1","n2"],"n2":["n2"],"n3":["n1","n3"]}}
+    },
+    {
+      "state_index": 17,
       "action": "becomeLeader",
       "matched": false,
-      "spec_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Follower","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":["n1","n3"]}},
-      "driver_state": {"currentTerm":{"n1":2,"n2":1,"n3":2},"role":{"n1":"Follower","n2":"Leader","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n3","n2":"n2","n3":"n3"},"votesReceived":{"n1":[],"n2":["n2","n3"],"n3":["n1","n3"]}}
+      "spec_state": {"currentTerm":{"n1":2,"n2":3,"n3":1},"role":{"n1":"Leader","n2":"Candidate","n3":"Follower"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1","n2"],"n2":["n2"],"n3":["n1","n3"]}},
+      "driver_state": {"currentTerm":{"n1":2,"n2":3,"n3":1},"role":{"n1":"Leader","n2":"Candidate","n3":"Leader"},"logs":{"n1":[],"n2":[],"n3":[]},"votedFor":{"n1":"n1","n2":"n2","n3":"n3"},"votesReceived":{"n1":["n1","n2"],"n2":["n2"],"n3":["n1","n3"]}}
     }
   ]
 }

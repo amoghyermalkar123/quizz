@@ -69,7 +69,7 @@ pub const RaftSM = struct {
         while (it.next()) |entry| {
             if (entry.value_ptr == self) continue;
             if (entry.value_ptr.role == .Leader and entry.value_ptr.currentTerm < self.currentTerm) {
-                entry.value_ptr.role = .Follower;
+                // entry.value_ptr.role = .Follower;
             }
         }
     }
