@@ -119,6 +119,10 @@ It is useful for stepping through traces and comparing spec state and driver sta
 - [`src/state.zig`](./src/state.zig): spec-state conversion helpers
 - [`src/json.zig`](./src/json.zig): JSON serialization for replay output
 
+## Known Issues
+
+- Parsed traces currently drop ITF metadata on conversion into Quizz's native types. Top-level trace metadata, declared variables, and richer per-state `#meta` fields are not preserved in the returned [`Trace`](./src/root.zig) and [`State`](./src/root.zig) values, so callers cannot inspect that information after parsing.
+
 ## In One Sentence
 
 Quizz lets you use Quint as the model, Zig as the implementation language, and replay-based comparison as the testing loop between them.

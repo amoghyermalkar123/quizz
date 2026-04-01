@@ -3,3 +3,4 @@ zig-out
 _apalache-out
 .claude
 tmp/
+*.json

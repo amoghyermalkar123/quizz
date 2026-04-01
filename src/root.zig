@@ -183,8 +183,6 @@ pub const Parser = struct {
                 for (obj.keys()) |k| {
                     const v = obj.get(k) orelse continue;
 
-                    // TODO: set, map, etc
-
                     if (std.mem.eql(u8, k, "#bigint")) {
                         return Values{ .BigInt = try gpa.dupe(u8, v.string) };
                     }
