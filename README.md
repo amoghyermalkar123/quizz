@@ -37,7 +37,7 @@ Quizz connects the two.
 
 ### Requirements
 
-- Zig `0.15.2` or newer
+- Zig `0.16.0` or newer
 - [Quint](https://quint-lang.org/) installed and available on your `PATH`
 
 Quizz invokes `quint run` internally, so Quint is required for generating traces from specs.
