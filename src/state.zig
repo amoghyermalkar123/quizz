@@ -140,7 +140,7 @@ pub fn convertValue(gpa: std.mem.Allocator, comptime field_type: type, value: qu
                 else => error.ValueTypeMismatch,
             };
         },
-        .@"struct" => |_| {
+        .@"struct" => {
             // this is a hashmap
             if (@hasDecl(field_type, "KV")) {
                 return try convertHashMap(gpa, field_type, value);

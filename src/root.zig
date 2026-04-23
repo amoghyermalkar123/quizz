@@ -258,11 +258,9 @@ pub const Parser = struct {
         return vo;
     }
 
-    pub fn parse(gpa: std.mem.Allocator, filepath: []const u8) !ParsedTrace {
-        const f = try std.fs.cwd().openFile(filepath, .{ .mode = .read_only });
-        defer f.close();
-
-        const content = try f.readToEndAlloc(gpa, std.math.maxInt(usize));
+    pub fn parse(gpa: std.mem.Allocator, io: std.Io, filepath: []const u8) !ParsedTrace {
+        const cwd = std.Io.Dir.cwd();
+        const content = try cwd.readFileAlloc(io, filepath, gpa, std.Io.Limit.unlimited);
         defer gpa.free(content);
 
         const parsed = try std.json.parseFromSlice(ItfTrace, gpa, content, .{ .allocate = .alloc_always });

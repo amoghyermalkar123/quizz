@@ -4,23 +4,26 @@ const driver_mod = @import("driver.zig");
 const quizz_json = @import("json.zig");
 const std = @import("std");
 const state = @import("state.zig");
+const Io = std.Io;
 
-pub fn run_test(gpa: std.mem.Allocator, driver: anytype, spec_path: []const u8, state_suffix: ?[]const u8) !void {
-    const abs_spec_path = try std.fs.realpathAlloc(gpa, spec_path);
-    defer gpa.free(abs_spec_path);
+pub fn run_test(gpa: std.mem.Allocator, io: Io, driver: anytype, spec_path: []const u8, state_suffix: ?[]const u8) !void {
+    const cwd = Io.Dir.cwd();
 
     const tmp_root = "tmp";
-    try std.fs.cwd().makePath(tmp_root);
+    try cwd.createDirPath(io, tmp_root);
 
-    const tmp_dir_name = try std.fmt.allocPrint(gpa, "{s}/quizz-{d}", .{ tmp_root, std.time.microTimestamp() });
+    var random_bytes: [8]u8 = undefined;
+    io.random(&random_bytes);
+    const random_suffix = std.fmt.bytesToHex(random_bytes, .lower);
+    const tmp_dir_name = try std.fmt.allocPrint(gpa, "{s}/quizz-{s}", .{ tmp_root, &random_suffix });
     defer gpa.free(tmp_dir_name);
-    try std.fs.cwd().makeDir(tmp_dir_name);
-    defer std.fs.cwd().deleteTree(tmp_dir_name) catch {};
+    try cwd.createDir(io, tmp_dir_name, .default_dir);
+    defer cwd.deleteTree(io, tmp_dir_name) catch {};
 
     const out_prefix = try std.fmt.allocPrint(gpa, "{s}/trace.itf.json", .{tmp_dir_name});
     defer gpa.free(out_prefix);
 
-    try generate_traces(gpa, abs_spec_path, out_prefix);
+    try generate_traces(gpa, io, spec_path, out_prefix);
 
     var traces = std.ArrayList(quizz.Trace).empty;
     defer {
@@ -30,13 +33,13 @@ pub fn run_test(gpa: std.mem.Allocator, driver: anytype, spec_path: []const u8, 
         traces.deinit(gpa);
     }
 
-    try load_traces(gpa, tmp_dir_name, &traces);
+    try load_traces(gpa, io, tmp_dir_name, &traces);
 
     if (traces.items.len == 0) return error.NoTracesGenerated;
-    try replay_traces(gpa, driver, traces.items, state_suffix);
+    try replay_traces(gpa, io, driver, traces.items, state_suffix);
 }
 
-pub fn replay_traces(gpa: std.mem.Allocator, driver: anytype, traces: []quizz.Trace, state_suffix: ?[]const u8) !void {
+pub fn replay_traces(gpa: std.mem.Allocator, io: Io, driver: anytype, traces: []quizz.Trace, state_suffix: ?[]const u8) !void {
     const Driver = switch (@typeInfo(@TypeOf(driver))) {
         .pointer => |ptr| ptr.child,
         else => @TypeOf(driver),
@@ -131,7 +134,7 @@ pub fn replay_traces(gpa: std.mem.Allocator, driver: anytype, traces: []quizz.Tr
             //
             // for now it runs on runtime and returns an error
             if (matched) continue else {
-                try writeReplayReport(gpa, report);
+                try writeReplayReport(gpa, io, report);
                 std.debug.print("trace failed, states don't match\n", .{});
                 // TODO: print artifact location
                 return error.TraceFailed;
@@ -141,30 +144,29 @@ pub fn replay_traces(gpa: std.mem.Allocator, driver: anytype, traces: []quizz.Tr
         }
     }
 
-    try writeReplayReport(gpa, report);
+    try writeReplayReport(gpa, io, report);
 
     return;
 }
 
-fn writeReplayReport(gpa: std.mem.Allocator, report: anytype) !void {
+fn writeReplayReport(gpa: std.mem.Allocator, io: Io, report: anytype) !void {
     const json_report = try quizz_json.valueAlloc(gpa, report, .{ .whitespace = .indent_2 });
     defer gpa.free(json_report);
 
-    try std.fs.cwd().writeFile(.{
+    try Io.Dir.cwd().writeFile(io, .{
         .sub_path = "quizz_run.json",
         .data = json_report,
     });
 }
 
-fn generate_traces(gpa: std.mem.Allocator, spec_path: []const u8, out_prefix: []const u8) !void {
+fn generate_traces(gpa: std.mem.Allocator, io: Io, spec_path: []const u8, out_prefix: []const u8) !void {
     const main_module = try deriveMainModuleName(gpa, spec_path);
     defer gpa.free(main_module);
 
     const out_arg = try std.fmt.allocPrint(gpa, "--out-itf={s}", .{out_prefix});
     defer gpa.free(out_arg);
 
-    const result = try std.process.Child.run(.{
-        .allocator = gpa,
+    const result = try std.process.run(gpa, io, .{
         .argv = &.{
             "quint",
             "run",
@@ -175,13 +177,14 @@ fn generate_traces(gpa: std.mem.Allocator, spec_path: []const u8, out_prefix: []
             "--n-traces=16",
             out_arg,
         },
-        .max_output_bytes = 1024 * 1024,
+        .stdout_limit = Io.Limit.limited(1024 * 1024),
+        .stderr_limit = Io.Limit.limited(1024 * 1024),
     });
     defer gpa.free(result.stdout);
     defer gpa.free(result.stderr);
 
     switch (result.term) {
-        .Exited => |code| {
+        .exited => |code| {
             if (code != 0) {
                 std.debug.print(
                     "quint run failed with exit code {d}\nstdout:\n{s}\nstderr:\n{s}\n",
@@ -200,9 +203,9 @@ fn deriveMainModuleName(gpa: std.mem.Allocator, spec_path: []const u8) ![]u8 {
     return try std.fmt.allocPrint(gpa, "{s}_test", .{stem});
 }
 
-fn load_traces(gpa: std.mem.Allocator, trace_dir_path: []const u8, traces: *std.ArrayList(quizz.Trace)) !void {
-    var trace_dir = try std.fs.cwd().openDir(trace_dir_path, .{ .iterate = true });
-    defer trace_dir.close();
+fn load_traces(gpa: std.mem.Allocator, io: Io, trace_dir_path: []const u8, traces: *std.ArrayList(quizz.Trace)) !void {
+    var trace_dir = try Io.Dir.cwd().openDir(io, trace_dir_path, .{ .iterate = true });
+    defer trace_dir.close(io);
 
     var filenames = std.ArrayList([]u8).empty;
     defer {
@@ -211,7 +214,7 @@ fn load_traces(gpa: std.mem.Allocator, trace_dir_path: []const u8, traces: *std.
     }
 
     var it = trace_dir.iterate();
-    while (try it.next()) |entry| {
+    while (try it.next(io)) |entry| {
         if (entry.kind != .file) continue;
         if (!std.mem.endsWith(u8, entry.name, ".itf.json")) continue;
         try filenames.append(gpa, try gpa.dupe(u8, entry.name));
@@ -226,12 +229,12 @@ fn load_traces(gpa: std.mem.Allocator, trace_dir_path: []const u8, traces: *std.
     for (filenames.items) |filename| {
         const full_path = try std.fmt.allocPrint(gpa, "{s}/{s}", .{ trace_dir_path, filename });
         defer gpa.free(full_path);
-        try traces.append(gpa, try parse_trace_file(gpa, full_path));
+        try traces.append(gpa, try parse_trace_file(gpa, io, full_path));
     }
 }
 
-fn parse_trace_file(gpa: std.mem.Allocator, filepath: []const u8) !quizz.Trace {
-    const parsed = try quizz.Parser.parse(gpa, filepath);
+fn parse_trace_file(gpa: std.mem.Allocator, io: Io, filepath: []const u8) !quizz.Trace {
+    const parsed = try quizz.Parser.parse(gpa, io, filepath);
     defer parsed.deinit();
 
     var trace = quizz.Trace{

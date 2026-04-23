@@ -138,18 +138,26 @@ pub const RaftDriver = struct {
     }
 };
 
-pub fn main() !void {
-    var gpa_state = std.heap.GeneralPurposeAllocator(.{}){};
+pub fn main(init: std.process.Init.Minimal) !void {
+    var gpa_state = std.heap.DebugAllocator(.{}){};
     defer _ = gpa_state.deinit();
 
     const gpa = gpa_state.allocator();
-    const args = try std.process.argsAlloc(gpa);
-    defer std.process.argsFree(gpa, args);
 
-    const spec_path = if (args.len > 1) args[1] else "examples/raft/spec/raft.qnt";
+    // Initialize Io with a proper allocator for spawning processes
+    var threaded_io = std.Io.Threaded.init(gpa, .{
+        .argv0 = .init(init.args),
+        .environ = init.environ,
+    });
+    defer threaded_io.deinit();
+    const io = threaded_io.io();
+
+    var args_iter = std.process.Args.Iterator.init(init.args);
+    _ = args_iter.next(); // skip program name
+    const spec_path = args_iter.next() orelse "examples/raft/spec/raft.qnt";
 
     var driver = try RaftDriver.create(gpa);
     defer driver.deinit();
 
-    try quizz.run_test(gpa, &driver, spec_path, state_suffix);
+    try quizz.run_test(gpa, io, &driver, spec_path, state_suffix);
 }
