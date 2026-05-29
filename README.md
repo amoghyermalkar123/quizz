@@ -105,11 +105,11 @@ If a mismatch happens, `quizz_run.json` is the first place to inspect.
 
 ### Step 4: Open the replay UI
 
-This repo also includes a lightweight UI for inspecting replay output:
+A native macOS replay viewer is planned in Zig. See [`docs/REPLAY_UI_PLAN.md`](./docs/REPLAY_UI_PLAN.md)
+for the layout, architecture, and implementation phases.
 
-- [`prototype/replay-ui/index.html`](./prototype/replay-ui/index.html)
-
-It is useful for stepping through traces and comparing spec state and driver state side by side.
+The legacy web prototype ([`prototype/replay-ui/`](./prototype/replay-ui/index.html)) is
+deprecated and will be removed once the Zig viewer ships.
 
 ## Project Shape
 
